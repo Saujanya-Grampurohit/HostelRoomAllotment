@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(to bottom right, #a0c4ff, #bde0fe);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .container input,
+        .container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .container button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .home-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .emoji {
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🎓</div>
+        <h2>Student Registration</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            <input type="text" name="name" placeholder="Enter Name" required>
+
+            <select name="year" required>
+                <option disabled selected>Select Year</option>
+                {% for year in years %}
+                    <option value="{{ year.id }}">{{ year.name }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="branch" required>
+                <option disabled selected>Select Branch</option>
+                {% for branch in branches %}
+                    <option value="{{ branch.id }}">{{ branch.name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        <a class="home-btn" href="{{ url_for('student') }}">🏠 Home</a>
+    </div>
+</body>
+</html>

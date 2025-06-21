@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Section - File a Complaint</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page-container">
+    <h1>🎓 Student Complaint Form</h1>
+    <p class="subtitle">Have an issue? Let us know below.</p>
+
+    <!-- Complaint Submission Form -->
+    <form method="POST" action="{{ url_for('submit_complaint') }}">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <textarea name="complaint" placeholder="Enter your complaint here..." rows="5" required></textarea>
+      <button type="submit" class="submit-btn">Submit Complaint</button>
+    </form>
+
+    <!-- Go to Admin or Back Button -->
+    <a href="{{ url_for('admin') }}" class="back-btn" style="margin-top: 20px;">Go to Admin Section</a>
+  </div>
+</body>
+</html>

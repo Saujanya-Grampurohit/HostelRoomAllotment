@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Complaint</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        textarea, select {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .submit-btn, .back-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .page-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h1>📢 Submit a Complaint</h1>
+        <form method="POST">
+            <label for="student_id">Select Your Name:</label><br>
+            <select name="student_id" required>
+                <option value="" disabled selected>-- Choose Your Name --</option>
+                {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.name }}</option>
+                {% endfor %}
+            </select><br>
+
+            <textarea name="complaint" placeholder="Describe your complaint..." rows="4" required></textarea><br>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <a href="{{ url_for('student') }}" class="back-btn">← Back to Student Options</a>
+    </div>
+</body>
+</html>

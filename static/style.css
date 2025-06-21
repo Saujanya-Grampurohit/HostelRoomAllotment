@@ -1,0 +1,224 @@
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #89f7fe, #66a6ff, #ffd194, #ff6e7f);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ─── KEYFRAMES ──────────────────────────────────────────────────────────── */
+  
+  @keyframes gradientBG {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* ─── CONTAINER ──────────────────────────────────────────────────────────── */
+  
+  .page-container {
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* ─── HEADINGS & SUBTITLE ────────────────────────────────────────────────── */
+  
+  .page-container h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  }
+  
+  .page-container .subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+  }
+  
+  /* ─── CARD GROUP (INDEX & ADMIN) ──────────────────────────────────────────── */
+  
+  .card-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 30px 25px;
+    width: 250px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  
+  .bright-card {
+    background: rgba(255,255,255,0.85);
+    color: #222;
+  }
+  
+  .dark-card {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+  }
+  
+  .card h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+  /* ─── FORM (student.html) ────────────────────────────────────────────────── */
+  
+  .page-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .page-container form input,
+  .page-container form select {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .page-container .submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .page-container .submit-btn:hover {
+    background-color: #003d80;
+  }
+  
+  /* ─── TABLES (students/complaints/documents) ───────────────────────────────────────────────────────────────── */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    animation: slideIn 0.8s ease-in-out;
+  }
+  
+  th, td {
+    padding: 16px;
+    background: rgba(255,255,255,0.85);
+    color: #222;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
+  tr:hover td {
+    background-color: #eef6ff;
+  }
+  
+  /* ─── BUTTONS ─────────────────────────────────────────────────────────────── */
+  
+  .back-btn {
+    margin-top: 30px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #0056b3;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
+  /* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
+  
+  @media (max-width: 768px) {
+    .card-group { flex-direction: column; }
+  }
+  
+
+  .logout-btn {
+  padding: 10px 24px;
+  font-size: 16px;
+  background-color: #4d97ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: hsl(282, 100%, 40%);
+}
+
+.page-container textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+}
+

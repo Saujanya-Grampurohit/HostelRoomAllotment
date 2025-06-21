@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="page-container">
+    <h1>🛠️ Admin Dashboard</h1>
+    <p class="subtitle">Select an action to proceed</p>
+    <div class="card-group">
+      <div class="card bright-card" onclick="location.href='{{ url_for('students') }}'">
+        <h2>📋 Students List</h2>
+        <p>View all registered students with room numbers.</p>
+      </div>
+      <div class="card bright-card" onclick="location.href='{{ url_for('complaints') }}'">
+        <h2>⚠️ Complaints</h2>
+        <p>Check all registered hostel complaints.</p>
+      </div>
+      <div class="card bright-card" onclick="location.href='{{ url_for('documents') }}'">
+        <h2>📁 Pending Documents</h2>
+        <p>View students with incomplete documents.</p>
+      </div>
+      <div class="card bright-card" onclick="location.href='{{ url_for('deleted_students') }}'">
+        <h2>🗂️ Deleted Students</h2>
+        <p>View history of removed students.</p>
+      </div>
+    </div>
+    <a href="{{ url_for('student') }}" class="nav-link">Go to Student Section</a>
+  </div>
+
+  <div style="margin-top: 20px;">
+      <a href="{{ url_for('logout') }}">
+        <button class="logout-btn">Logout</button>
+      </a>
+  </div>
+</body>
+</html>
+

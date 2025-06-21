@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pending Documents</title>
+  <!-- Make sure this is exactly in your <head> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <!-- This wrapper applies your centered layout, backdrop-filter, padding, etc. -->
+  <div class="page-container">
+    <h1>📑 Pending Documents</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Branch</th>
+          <th>Year</th>
+          <th>Pending Document</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+          <tr>
+            <td>{{ r.name }}</td>
+            <td>{{ r.branch_name }}</td>
+            <td>{{ r.year_name }}</td>
+            <td>{{ r.pending_doc }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Use your .back-btn class so it gets styled -->
+    <button class="back-btn" onclick="location.href='{{ url_for('admin') }}'">
+      🔙 Go Back
+    </button>
+  </div>
+</body>
+</html>

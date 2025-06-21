@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deleted Students</title>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <h2>Deleted Students (Backup List)</h2>
+    <table border="1" class="table table-striped">
+        <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Year</th>
+                <th>Branch</th>
+                <th>Room No</th>
+                <th>Deleted At</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.year_name }}</td>
+                <td>{{ row.branch_name }}</td>
+                <td>{{ row.room_no }}</td>
+                <td>{{ row.deleted_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('admin') }}">Back to Admin</a>
+</body>
+</html>
+
+{% endblock %}
