@@ -5,18 +5,21 @@ from mysql.connector import errorcode
 
 def get_db_connection():
     try:
+        print("Trying to connect to DB with:")
+        print("HOST:", os.environ.get("MYSQLHOST"))
+        print("USER:", os.environ.get("MYSQLUSER"))
+        print("DB:", os.environ.get("MYSQLDATABASE"))
+
         conn = mysql.connector.connect(
-            host=os.environ.get("MYSQLHOST", "railway"),
-            user=os.environ.get("MYSQLUSER", "root"),
-            password=os.environ.get("MYSQLPASSWORD", "EWQFpxAkmIsLhvSNPvIOtVynRtXWYPXM"),
-            database=os.environ.get("MYSQLDATABASE", "railway"),
+            host=os.environ.get("MYSQLHOST"),
+            user=os.environ.get("MYSQLUSER"),
+            password=os.environ.get("MYSQLPASSWORD"),
+            database=os.environ.get("MYSQLDATABASE"),
             port=int(os.environ.get("MYSQLPORT", 3306))
         )
         return conn
     except mysql.connector.Error as err:
-        if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-            raise RuntimeError("DB authentication error")
-        elif err.errno == errorcode.ER_BAD_DB_ERROR:
-            raise RuntimeError("Database does not exist")
-        else:
-            raise
+        print("ERROR CODE:", err.errno)
+        print("MESSAGE:", err.msg)
+        print("SQLSTATE:", err.sqlstate)
+        raise
