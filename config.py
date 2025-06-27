@@ -6,9 +6,9 @@ from mysql.connector import errorcode
 def get_db_connection():
     try:
         conn = mysql.connector.connect(
-            host=os.environ.get("MYSQLHOST", "mysql.railway.internal"),
+            host=os.environ.get("MYSQLHOST", "railway"),
             user=os.environ.get("MYSQLUSER", "root"),
-            password=os.environ.get("MYSQLPASSWORD", ""),
+            password=os.environ.get("MYSQLPASSWORD", "EWQFpxAkmIsLhvSNPvIOtVynRtXWYPXM"),
             database=os.environ.get("MYSQLDATABASE", "railway"),
             port=int(os.environ.get("MYSQLPORT", 3306))
         )
